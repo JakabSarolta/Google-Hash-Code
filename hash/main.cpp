@@ -12,20 +12,39 @@ struct Project{
 struct Skill{
     string name;
     short level;
-    vector <Project>needTo[1000];
-    vector <string>contributorWith[1000];
+    vector <Project>needTo[100];
+    vector <string>contributorWith[100];
 };
 
 
 void pushSkill(Skill skills[], string name, string skillName, int skillLevel, int *skillsNr){
     for(int i = 0; i < *skillsNr; i++){
-        if(skills[i].name == name && skills[i].level == skillLevel){
+        if(skills[i].name == skillName && skills[i].level == skillLevel){
             skills[i].contributorWith->push_back(name);
             return;
         }
     }
     skills[*skillsNr].name = skillName;
     skills[*skillsNr].contributorWith->push_back(name);
+}
+
+void pushProject(Skill skills[], string projectName, int days, int score, int roles,
+                 int best_before, string skillName, int skillLevel, int *skillsNr){
+    Project project;
+    project.name = projectName;
+    project.nr_of_days = days;
+    project.nr_of_roles = roles;
+    project.best_before = best_before;
+    project.score = score;
+
+    for(int i = 0; i < *skillsNr; i++){
+        if(skills[i].name == skillName && skills[i].level == skillLevel){
+            skills[i].needTo->push_back(project);
+            return;
+        }
+    }
+    skills[*skillsNr].name = skillName;
+    skills[*skillsNr].needTo->push_back(project);
 }
 
 
