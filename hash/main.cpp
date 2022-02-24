@@ -24,9 +24,22 @@ int main()
     f>>nr_of_contributors>>nr_of_projects;
     cout << nr_of_contributors << " " << nr_of_projects;
 
+    //contributors
     for (int i=0; i<nr_of_contributors; i++)
     {
+        string name;
+        int skillsNr;
+        string skillName;
+        int skillLevel;
 
+        f>>name>>skillsNr;
+
+        for (int j=0; j<skillsNr; j++)
+        {
+            f>>skillName>>skillLevel;
+
+            pushSkill(name, skillName, skillLevel);
+        }
     }
 
 
