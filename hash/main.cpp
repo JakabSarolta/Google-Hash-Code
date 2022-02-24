@@ -52,7 +52,6 @@ void pushProject(Skill skills[], string projectName, int days, int score, int ro
     (*skillsNr)++;
 }
 
-
 int main()
 {
     ifstream f("input.txt");
