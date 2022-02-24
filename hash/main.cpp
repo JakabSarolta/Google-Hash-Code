@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -15,8 +16,20 @@ struct Skill{
 };
 
 
+
 int main()
 {
-    cout << "Hey";
+    ifstream f("input.txt");
+    int nr_of_contributors, nr_of_projects;
+    f>>nr_of_contributors>>nr_of_projects;
+    cout << nr_of_contributors << " " << nr_of_projects;
+
+    for (int i=0; i<nr_of_contributors; i++)
+    {
+
+    }
+
+
+    f.close();
     return 0;
 }
